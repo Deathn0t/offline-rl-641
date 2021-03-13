@@ -65,6 +65,7 @@ class UCB:
         self.bandit = bandit
         self.inv_delta = inv_delta
         self.sigma = sigma
+        self.name = "UCB"
         self.reset()
 
     def reset(self):

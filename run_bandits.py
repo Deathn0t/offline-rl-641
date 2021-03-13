@@ -55,7 +55,7 @@ for i in range(X.shape[0]):
     result_database[i]["true_means"] = list(r[i].astype(float))
 
 
-with open(os.path.join(RESULTS_PATH, *["UCB.json"]), "w") as f:
+with open(os.path.join(RESULTS_PATH, *[f"{algo.name}.json"]), "w") as f:
     json.dump(result_database, f)
 
 print("Saved results to", RESULTS_PATH)
