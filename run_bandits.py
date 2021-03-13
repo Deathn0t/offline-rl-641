@@ -2,6 +2,7 @@ from env.utils import load_data
 import numpy as np
 from tqdm import tqdm
 from pprint import pprint
+from matplotlib import pyplot as plt
 
 import os
 import json
@@ -61,3 +62,17 @@ with open(os.path.join(RESULTS_PATH, *[f"{algo.name}.json"]), "w") as f:
 print("Saved results to", RESULTS_PATH)
 
 
+fig, ax = plt.subplots(figsize=(10, 8))
+
+for regret_i in regrets:
+    ax.plot(regret_i, alpha=0.6)
+
+ax.set_xlabel('Step', fontsize=12)
+ax.set_ylabel('Cumulative regret', fontsize=12)
+
+plt.title(algo.name, fontsize=14)
+
+fig.tight_layout()
+    
+plt.savefig(os.path.join(RESULTS_PATH, f"{algo.name}_regrets.pdf"), dpi=1000)
+plt.show()
