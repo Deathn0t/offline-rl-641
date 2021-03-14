@@ -16,6 +16,8 @@ RESULTS_PATH = os.path.join(HERE, *["notebooks", "figures"])
 
 os.makedirs(RESULTS_PATH, exist_ok=True)
 
+np.random.seed(42)
+
 X, y, r = load_data(DATA_PATH, full=True)
 sort_by_x(X, inplace=True)
 # print (X.shape)

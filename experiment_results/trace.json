@@ -1,0 +1,1 @@
+{"0": {"seed": 42, "params": {"BATCH_SIZE": 50, "EPS_DECAY": 200, "EPS_END": 0.05, "EPS_START": 0.9, "GAMMA": 0.99, "TARGET_UPDATE": 5, "naction_ending": 5, "offline_max_remove_data_perc": 0.4, "offline_max_remove_network": 1, "reward_penalty": 0.001, "step_sampling": true}, "top1": 0.195, "top2": 0.665}}
