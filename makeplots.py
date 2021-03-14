@@ -61,7 +61,7 @@ def plot_sampling(X, steps=3):
                 y_ij = y_toplot[:pos_i]
                 ax[i, j].scatter(x_ij, y_ij)
                 ax[i, j].set_title(f'Step {pos_i} (sampling)')
-            
+
     plt.tight_layout()
     plt.savefig(os.path.join(RESULTS_PATH, f"episode_types.pdf"), dpi=1000)
     plt.show()
@@ -79,7 +79,7 @@ def plot_fndistance(X):
     plt.title("Histogram of pair-wise distance between objective functions")
     plt.xlabel("Minkowski distance")
     plt.ylabel("Density")
-    
+
     plt.savefig(os.path.join(RESULTS_PATH, f"polynomes-distances.pdf"), dpi=1000)
     plt.show()
     plt.clf()
@@ -97,7 +97,7 @@ def plot_reward_closeness(r):
     for i in range(2, n_networks+1):
         range_topk = np.ptp(sorted_r[:,:i], axis=1).ravel()
         ax[i-2].set_xlim([0, 2.0])
-        
+
         if i==n_networks:
             ax[i-2].set_title('All actions', fontsize=14)
         else:
@@ -106,18 +106,19 @@ def plot_reward_closeness(r):
         ax[i-2].hist(range_topk, bins=20, density=False)
 
     fig.suptitle("Distribution of absolute reward difference for top-k actions (all objective functions)", fontsize=16)
-    
-    
+
+
     plt.tight_layout()
-    
+
     plt.savefig(os.path.join(RESULTS_PATH, f"reward-hardness.pdf"), dpi=1000)
     plt.show()
     plt.clf()
 
 
-    
+
 
 if __name__=="__main__":
+    print("start plots...")
     # plot_sampling(X, steps=5)
     # plot_fndistance(X)
     # plot_reward_closeness(r)

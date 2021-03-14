@@ -33,15 +33,15 @@ class ReplayMemory(object):
 
     def __len__(self):
         return len(self.memory)
-    
+
     def reset(self):
         self.memory = []
-        self.position = 0 
+        self.position = 0
 
 class DQN(nn.Module):
     def __init__(self, env):
         super(DQN, self).__init__()
-        
+
         self.fc1 = nn.Linear(env.observation_space.shape[0]* env.observation_space.shape[1], 64)
         self.bn1 = nn.BatchNorm1d(64)
         self.fc2 = nn.Linear(64, 64)
